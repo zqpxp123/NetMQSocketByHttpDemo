@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A042153-5699-4B9B-A011-1EDCA65E662D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Service</RootNamespace>
+    <AssemblyName>Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fast\FastMathService.cs" />
+    <Compile Include="Http\HomeController.cs" />
+    <Compile Include="Http\ChatController.cs" />
+    <Compile Include="Http\EventController.cs" />
+    <Compile Include="Websocket\WebSocketChatService.cs" />
+    <Compile Include="Http\WebApiController.cs" />
+    <Compile Include="Fast\FastLogFilter.cs" />
+    <Compile Include="Fast\FastLoginAttribute.cs" />
+    <Compile Include="Fast\FastGlobalFilter.cs" />
+    <Compile Include="Websocket\WebSockeGlobalFilter.cs" />
+    <Compile Include="Http\HttpGlobalFilter.cs" />
+    <Compile Include="Http\HttpLogFilter.cs" />
+    <Compile Include="Websocket\WebSocketNickNameFilter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="View\Home\CusMiddleware.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\NetworkSocket\NetworkSocket.Net45.csproj">
+      <Project>{80d0fa44-523b-4e68-bdc2-b12901d5855b}</Project>
+      <Name>NetworkSocket.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{f9b37780-6345-4e6f-8523-687f56895625}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="View\Chat\Index.cshtml" />
+    <Content Include="js\chatUI.js" />
+    <Content Include="js\bootstrap\css\bootstrap-ie6.min.css" />
+    <Content Include="js\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="js\bootstrap\css\bootstrap.min.css" />
+    <Content Include="js\bootstrap\css\ie.css" />
+    <Content Include="js\bootstrap\img\glyphicons-halflings-8.png" />
+    <Content Include="js\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="js\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="js\bootstrap\img\next.png" />
+    <Content Include="js\bootstrap\img\prev.png" />
+    <Content Include="js\bootstrap\js\bootstrap-ie.js" />
+    <Content Include="js\bootstrap\js\bootstrap.min.js" />
+    <Content Include="js\jquery-1.7.1.min.js" />
+    <Content Include="js\json2.js" />
+    <Content Include="js\jsonWebSocket.js" />
+    <Content Include="js\swfobject.js" />
+    <Content Include="js\WebSocketMain.swf" />
+    <Content Include="js\web_socket.js" />
+    <Content Include="js\window\window.css" />
+    <Content Include="js\window\window.js" />
+    <None Include="View\Home\WebApi.cshtml" />
+    <None Include="View\Event\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="View\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
